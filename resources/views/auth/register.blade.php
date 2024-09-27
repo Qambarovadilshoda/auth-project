@@ -33,8 +33,8 @@
                 {{$message}}
                 @enderror
                 <div class="form-group">
-                    <label for="registerAvatar">Upload Avatar</label>
-                    <input type="file" class="form-control-file" name="avatar">
+                    <label for="registerEmail">Avatar</label>
+                    <input type="file" class="form-control" name="avatar" required>
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Register</button>
             </form>

@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{route('dashboard', auth()->user()->id)}}">Back to Dashboard</a>
+                <a class="nav-link" href="{{route('dashboard')}}">Back to Dashboard</a>
             </li>
         </ul>
     </div>

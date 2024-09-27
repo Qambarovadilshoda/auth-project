@@ -31,7 +31,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('registerForm');
+        return redirect()->route('loginForm');
     }
     public function loginForm()
     {
@@ -58,27 +58,22 @@ class AuthController extends Controller
     public function updateProfile(StoreProfileEditRequest $request, $id) {
         $user = User::findOrFail($id);
         
-        // Update user name and email
         $user->name = $request->name;
         $user->email = $request->email;
     
-        // Handle avatar upload
         if ($request->hasFile('avatar')) {
-            // Delete the old avatar if it exists
             if ($user->avatar) {
                 @unlink(storage_path('app/public/' . $user->avatar));
             }
     
-            // Store the new avatar
             $avatar = $request->file('avatar');
             $fileName = time() . '.' . $avatar->getClientOriginalExtension();
             $user->avatar = $avatar->storeAs('images', $fileName, 'public');
         }
     
-        // Save the user profile
         $user->save();
     
-        return redirect()->route('dashboard', $user->id);
+        return redirect()->route('dashboard');
     }
     
     public function dashboard(){
